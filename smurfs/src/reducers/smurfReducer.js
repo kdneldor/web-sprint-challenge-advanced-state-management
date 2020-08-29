@@ -20,7 +20,7 @@ const initialState = {
 export const smurfReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_NAME_START:
-      console.log("fetching a name");
+      // console.log("fetching a name");
       return {
         ...state,
         isFetching: true,
@@ -30,7 +30,7 @@ export const smurfReducer = (state = initialState, action) => {
     case FETCHING_NAME_ERROR:
       return { ...state, error: action.payload, isFetching: false };
     case FETCHING_AGE_START:
-      console.log("fetching a age");
+      // console.log("fetching a age");
       return {
         ...state,
         isFetching: true,
@@ -40,7 +40,7 @@ export const smurfReducer = (state = initialState, action) => {
     case FETCHING_AGE_ERROR:
       return { ...state, error: action.payload, isFetching: false };
     case FETCHING_HEIGHT_START:
-      console.log("fetching a height");
+      // console.log("fetching a height");
       return {
         ...state,
         isFetching: true,

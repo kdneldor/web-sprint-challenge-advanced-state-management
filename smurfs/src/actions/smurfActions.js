@@ -12,7 +12,7 @@ export const FETCHING_HEIGHT_SUCCESS = "FETCHING_HEIGHT_SUCCESS";
 export const FETCHING_HEIGHT_ERROR = "FETCHING_HEIGHT_ERROR";
 
 export const getName = () => (dispatch) => {
-    console.log("getting smurf");
+    // console.log("getting smurf");
     dispatch({type: FETCHING_NAME_START});
     axios
     .get(`http://localhost:3333/smurfs`)
@@ -27,7 +27,7 @@ export const getName = () => (dispatch) => {
 }
 
 export const getAge = () => (dispatch) => {
-    console.log("getting smurf");
+    // console.log("getting smurf");
     dispatch({type: FETCHING_AGE_START});
     axios
     .get(`http://localhost:3333/smurfs`)
@@ -42,7 +42,7 @@ export const getAge = () => (dispatch) => {
 }
 
 export const getHeight = () => (dispatch) => {
-    console.log("getting smurf");
+    // console.log("getting smurf");
     dispatch({type: FETCHING_HEIGHT_START});
     axios
     .get(`http://localhost:3333/smurfs`)

@@ -44,8 +44,8 @@ class AddSmurf extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3333/smurfs`, this.newSmurf(this.state.smurf));
-
+    axios.post(`http://localhost:3333/smurfs`, this.newSmurf());
+    console.log(this.state)
     this.setState({ name: "", height: "", age: "" });
   };
 

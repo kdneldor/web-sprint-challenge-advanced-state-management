@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import Name from "./Name"
-import Height from "./Height"
-import Age from "./Age"
-import AddSmurf from "./AddSmurf"
+import Name from "./Name";
+import Height from "./Height";
+import Age from "./Age";
+import AddSmurf from "./AddSmurf";
 import "./App.css";
 class App extends Component {
   render() {
-    console.log("Hello")
     return (
       <div className="App">
         <h1>SMURFS! W/Redux</h1>
