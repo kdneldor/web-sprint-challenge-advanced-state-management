@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Name from "./Name"
 import Height from "./Height"
 import Age from "./Age"
+import AddSmurf from "./AddSmurf"
 import "./App.css";
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Name />
         <Height />
         <Age />
+        <AddSmurf />
       </div>
     );
   }
