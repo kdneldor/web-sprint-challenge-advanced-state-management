@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getSmurf } from "../actions/smurfActions";
 
-const Smurf = ({ getSmurf, name, isFetching }) => {
+const Smurf = ({ getSmurf, smurf, isFetching }) => {
   // Hit the API after the component mounts
   console.log();
   useEffect(() => {
