@@ -5,10 +5,10 @@ import {
 } from "../actions/smurfActions";
 
 const initialState = {
-  name: "",
-  age: "",
-  height: "",
-  id: "",
+  smurfs: [],
+  isFetching: false,
+  error: "",
+
 };
 
 export const smurfReducer = (state = initialState, action) => {
@@ -20,7 +20,7 @@ export const smurfReducer = (state = initialState, action) => {
         isFetching: true,
       };
     case FETCHING_SMURF_SUCCESS:
-      return { ...state, name: action.payload, age: action.payload, height: action.payload, isFetching: false };
+      return { ...state, smurfs: [...state.smurfs, ...action.payload], isFetching: false };
     case FETCHING_SMURF_ERROR:
       return { ...state, error: action.payload, isFetching: false };
       default:

@@ -1,37 +1,13 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { getSmurf } from "../actions/smurfActions";
+import React from "react";
 
-const Smurf = ({ getSmurf, smurf, isFetching }) => {
-  // Hit the API after the component mounts
-  console.log();
-  useEffect(() => {
-    getSmurf();
-  }, [getSmurf]);
-
-  if (isFetching) {
-    return <h2>Loading...</h2>;
-  }
-
+const Smurf = ({ smurf }) => {
   return (
     <>
-      <h2>Smurfs!</h2>
-      <p>Smurf Name: </p>
-      <p>Smurf Height: </p>
-      <p>Smurf Age: </p>
+      <p>Smurf Name: {smurf.name}</p>
+      <p>Smurf Height: {smurf.height}</p>
+      <p>Smurf Age: {smurf.age}</p>
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    name: state.name,
-    height: state.height,
-    age: state.age,
-    isFetching: state.isFetching,
-  };
-};
-
-const mapDispatchToProps = { getSmurf };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Smurf);
+export default Smurf;
