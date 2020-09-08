@@ -2,51 +2,34 @@ import React from "react";
 import axios from "axios";
 
 class AddSmurf extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      height: "",
-      age: "",
-    };
-  }
+  
+  state = {
+    smurf: { name: "", height: "", age: "" },
+  };
 
-  handleName = (e) => {
+  handleChanges = (e) => {
+    e.preventDefault();
     this.setState({
-      name: e.target.value,
+      smurf: { ...this.state.smurf, [e.target.name]: e.target.value },
     });
   };
 
-  handleHeight = (e) => {
-    this.setState({
-      height: e.target.value,
-    });
-  };
-
-  handleAge = (e) => {
-    this.setState({
-      age: e.target.value,
-    });
-  };
-
-  newSmurf = (smurf) => {
-    const newSmurf = {
-      name: smurf,
-      height: smurf,
-      age: smurf,
-    };
-    this.setState({
-      name: [...this.state.name, newSmurf],
-      height: [...this.state.height, newSmurf],
-      age: [...this.state.age, newSmurf],
-    });
-  };
+  // newSmurf = (smurf) => {
+  //   const newSmurf = {
+  //     smurf: smurf,
+  //   };
+  //   this.setState({
+  //     smurfs: [{ ...this.state.smurfs, newSmurf }],
+  //   });
+  // };
 
   onSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3333/smurfs`, this.newSmurf());
-    console.log(this.state)
-    this.setState({ name: "", height: "", age: "" });
+    axios
+      .post(`http://localhost:3333/smurfs`, this.state.smurf)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    this.setState({ smurf: { name: "", height: "", age: "" } });
   };
 
   render() {
@@ -56,22 +39,22 @@ class AddSmurf extends React.Component {
           type="text"
           name="name"
           placeholder="Enter Smurf Name"
-          value={this.state.name}
-          onChange={this.handleName}
+          value={this.state.smurf.name}
+          onChange={this.handleChanges}
         ></input>
         <input
           type="text"
           name="height"
           placeholder="Enter Smurf Height"
-          value={this.state.height}
-          onChange={this.handleHeight}
+          value={this.state.smurf.height}
+          onChange={this.handleChanges}
         ></input>
         <input
           type="text"
           name="age"
           placeholder="Enter Smurf Age"
-          value={this.state.age}
-          onChange={this.handleAge}
+          value={this.state.smurf.age}
+          onChange={this.handleChanges}
         ></input>
         <button>Add Smurf</button>
       </form>
